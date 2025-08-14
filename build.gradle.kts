@@ -37,8 +37,8 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/apearson75/TFLBusesLib")
             credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
             }
         }
     }
@@ -46,7 +46,7 @@ publishing {
         register<MavenPublication>("maven") {
             groupId = "com.shahid"
             version = version
-            artifactId = "tflbuses"
+            artifactId = "tflbuseslib"
             from(components["java"])
         }
     }
